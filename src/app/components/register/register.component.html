@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center pb-4 pt-3">
+                    <span class="text-primary"><i class="fa fa-lock"></i>Employee Portal</span> Register
+                </h1>
+                <form>
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text"  [(ngModel)]="employee.firstName" name='firstName' class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text"  [(ngModel)]="employee.lastName" name='lastName'  class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email"  [(ngModel)]="employee.email"  name='email' class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password"  [(ngModel)]="employee.password" name='password'  class="form-control" required>
+                    </div>
+                        <div class="form-group">
+                        <label for="title">Select Your Department</label>
+                        <select class="form-control" name="title" [(ngModel)]="employee.title" id="title-selection">
+                          <option value="1">1. Math</option>
+                          <option value="2">2. Science</option>
+                          <option value="3">3. English</option>
+                          <option value="4">4. History</option>
+                        </select>
+                      </div>
+                    <button  value ="Register" [disabled]="employee.firstName == ''" class= "btn btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

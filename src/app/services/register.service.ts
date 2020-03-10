@@ -12,13 +12,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class RegisterService {
-  postsUrl: string = 'http://localhost:8080/tuition-reimbursement/User';
+  postsUrl: string = 'http://localhost:8080/tuition-reimbursement/user';
 
   constructor(private http: HttpClient) { }
-
-  getForms() : Observable<RegisterForm[]>{
-    return this.http.get<RegisterForm[]>(this.postsUrl);
-  }
   
 saveEmployee(forms: RegisterForm): Observable<RegisterForm>{
   return this.http.post<RegisterForm>(this.postsUrl, forms,httpOptions);

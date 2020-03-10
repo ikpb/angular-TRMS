@@ -2,12 +2,12 @@
 
 export interface Employee{
     id?:number;
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    password?: string;
     reportsTo?: string;
-    title: string;
+    title?: string;
     remainingAmount?: number;
     userType?: string
   }

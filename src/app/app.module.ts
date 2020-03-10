@@ -17,10 +17,17 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EmployeesService} from './services/employees.service';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ReimbursementService } from './services/reimbursement.service';
 import { RequestComponent } from './components/request/request.component'
 import { RegisterService } from './services/register.service';
+import { LoginService } from './services/login.service';
+import { CookieService } from 'ngx-cookie-service';
+import { EmployeeDashboardComponent } from './components/employee-dashboard/employee-dashboard.component';
+import { HttpRequestInterceptor } from './classes/HttpRequestInterceptor';
+import { AuthGuard } from './auth/auth.guard';
+import {TokenInterceptorService} from './service/token-interceptor.service';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +44,7 @@ import { RegisterService } from './services/register.service';
     SettingsComponent,
     NotFoundComponent,
     RequestComponent,
+    EmployeeDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +52,7 @@ import { RegisterService } from './services/register.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [EmployeesService, ReimbursementService, RegisterService],
+  providers: [EmployeesService, ReimbursementService, RegisterService,CookieService, LoginService, {provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}, AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

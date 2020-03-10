@@ -11,7 +11,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class EmployeesService {
- postsUrl: string = 'http://localhost:8080/tuition-reimbursement/User';
+ postsUrl: string = 'http://localhost:8080/tuition-reimbursement/user';
   constructor(private http: HttpClient) { }
 
   getEmployees() : Observable<Employee[]>{

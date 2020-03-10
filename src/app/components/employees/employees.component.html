@@ -1,7 +1,15 @@
 <h2>Employees</h2>
-<ul>
-    <li *ngFor="let employee of employees">
-        {{ employee.firstName }}
-
-    </li>
-</ul>
+<div class="col-md-6">
+<div class="card border-primary mb-3" *ngFor="let employee of employees">
+    <div class="card-head pt-1 pl-2"><h5>{{ employee.firstName }} {{ employee.lastName }}</h5></div>
+    <div class="card-body">
+        <p class="card-title"><span class="badge badge-primary badge-pill" >id: {{ employee.id }} </span></p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Email: {{ employee.email }}</li>
+            <li class="list-group-item">Remaining Balance: {{employee.remainingAmount}}</li>
+          </ul>
+          <a href="#" class="btn btn-primary mt-2">Go somewhere</a>
+        <p class="card-text"></p>
+    </div>
+</div>
+</div>

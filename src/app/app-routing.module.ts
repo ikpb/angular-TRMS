@@ -11,17 +11,21 @@ import {EmployeeDetailsComponent} from './components/employee-details/employee-d
 import {EmployeesComponent} from './components/employees/employees.component';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {SettingsComponent} from './components/settings/settings.component';
+import { EmployeeDashboardComponent } from './components/employee-dashboard/employee-dashboard.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-{path: '', component: DashboardComponent},
+{path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+{path: 'request/add', component: AddRequestComponent, canActivate: [AuthGuard]},
+{path: 'request/edit', component: EditRequestComponent, canActivate: [AuthGuard]},
+{path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
 {path: 'login', component: LoginComponent},
 {path: 'register', component: RegisterComponent},
-{path: 'request/add', component: AddRequestComponent},
-{path: 'request/edit', component: EditRequestComponent},
-{path: 'requests', component: RequestComponent},
-{path: 'employee/details', component: EmployeeDetailsComponent},
-{path: 'employees', component: EmployeesComponent},
-{path: 'settings', component: SettingsComponent},
+{path: 'requests', component: RequestComponent, canActivate: [AuthGuard]},
+{path: 'employee/details', component: EmployeeDetailsComponent, canActivate: [AuthGuard]},
+{path: 'employee-dashboard', component: EmployeeDashboardComponent, canActivate: [AuthGuard]},
+{path: 'employees', component: EmployeesComponent, canActivate: [AuthGuard]},
+{path: 'settings', component: SettingsComponent, canActivate: [AuthGuard]},
 {path: '**', component: NotFoundComponent},
 
 ];

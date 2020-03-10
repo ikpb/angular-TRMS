@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from 'src/app/models/employee';
+import { Router } from '@angular/router';
+import { RegisterForm} from 'src/app/models/RegisterForm';
 import { RegisterService } from '../../services/register.service';
 
 @Component({
@@ -10,21 +11,16 @@ import { RegisterService } from '../../services/register.service';
 export class RegisterComponent implements OnInit {
 
 
-employee: Employee ={
-firstName:'',
-lastName: '',
-email: '',
-password: '',
-title:'',
-}
-  constructor(private register: RegisterService) { }
+  constructor(private register: RegisterService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
   }
   
-  addEmployee(){this.register.saveEmployee({} as Employee).subscribe(forms =>{
+  addEmployee(firstName, lastName, email, password,title){
+    this.register.saveEmployee({firstName, lastName, email, password,title} as RegisterForm).subscribe(forms =>{
     console.log(forms);
   });
+  this.router.navigate(['/Login'])
 }
 
 

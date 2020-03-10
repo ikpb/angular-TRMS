@@ -8,31 +8,31 @@
                 <form>
                     <div class="form-group">
                         <label for="firstName">First Name</label>
-                        <input type="text"  [(ngModel)]="employee.firstName" name='firstName' class="form-control" required>
+                        <input type="text" name='firstName' class="form-control" required #firstName>
                     </div>
                     
                     <div class="form-group">
                         <label for="lastName">Last Name</label>
-                        <input type="text"  [(ngModel)]="employee.lastName" name='lastName'  class="form-control" required>
+                        <input type="text" name='lastName'  class="form-control" required #lastName>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email"  [(ngModel)]="employee.email"  name='email' class="form-control" required>
+                        <input type="email" name='email' class="form-control" required #email>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password"  [(ngModel)]="employee.password" name='password'  class="form-control" required>
+                        <input type="password" name='password'  class="form-control" required #password>
                     </div>
                         <div class="form-group">
                         <label for="title">Select Your Department</label>
-                        <select class="form-control" name="title" [(ngModel)]="employee.title" id="title-selection">
+                        <select class="form-control" name="title" id="title-selection" #title>
                           <option value="1">1. Math</option>
                           <option value="2">2. Science</option>
                           <option value="3">3. English</option>
                           <option value="4">4. History</option>
                         </select>
                       </div>
-                    <button  value ="Register" [disabled]="employee.firstName == ''" class= "btn btn-primary">Register</button>
+                    <button (click)="addEmployee(firstName.value,lastName.value,email.value,password.value,title.value)" value ="Register" class= "btn btn-primary">Register</button>
                 </form>
             </div>
         </div>

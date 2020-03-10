@@ -23,4 +23,8 @@ getForms() : Observable<ReimbursementForm[]>{
 saveForm(forms: ReimbursementForm): Observable<ReimbursementForm>{
   return this.http.post<ReimbursementForm>(this.postsUrl, forms,httpOptions);
 }
+getMyform() : Observable<ReimbursementForm>
+{
+  return this.http.get<ReimbursementForm>(this.postsUrl,httpOptions);
+}
 }

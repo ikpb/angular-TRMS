@@ -1,0 +1,61 @@
+<div *ngIf="pageLoaded" class="row">
+    <div class="col-md-10 mx-auto">
+        <div class="card-body">
+           <h1><span class="text-primary"><i class="fa fa-wpforms"></i>Reimbursement Form</span> Id: {{ individualForm.id }}
+        </h1>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="formDate">Date Submitted:</label>
+                <p>{{ individualForm.submissionDate }}</p>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="formDate">Date Of Event:</label>
+                <p>{{ individualForm.dateOfEvent }}</p>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="formDate">Event End Date:</label>
+                <p>{{ individualForm.endDate }}</p>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="formDate">Address:</label>
+                <p>{{ individualForm.address }}</p>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="formDate">City:</label>
+                <p>{{ individualForm.city }}</p>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="formDate">State:</label>
+                <p>{{ individualForm.state }}</p>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="formDate">Event Cost:</label>
+                <p>{{ individualForm.cost }}</p>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="formDate">Estimated Return</label>
+                <p>{{ individualForm.estimateReimburse }}</p>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="formDate">Description:</label>
+                <p>{{ individualForm.description }}</p>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="formDate">Justification:</label>
+                <p>{{ individualForm.workJustification }}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!pageLoaded">
+    <h4>Form Loading...</h4>
+</div>

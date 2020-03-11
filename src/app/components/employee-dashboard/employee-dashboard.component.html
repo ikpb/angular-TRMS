@@ -1,2 +1,41 @@
-<p>employee-dashboard works!</p>
-<app-add-request></app-add-request>
+<h5 class="text-center">Welcome Back: {{ employee?.firstName }}!</h5>
+<div class="row">
+   
+    <div class="col-md-2"></div>
+<div class="col-md-8">
+    <div class="card border-secondary mb-3" >
+        <div class="card-head pt-1 pl-2" *ngIf='employee != null ' ><h5> {{ employee?.firstName }} {{ employee?.lastName }}</h5></div>
+        <div class="card-body">
+            <p class="card-title"><span class="badge badge-primary badge-pill" >id: {{ employee?.id }} </span></p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Email: {{ employee?.email }}</li>
+                <li class="list-group-item">Remaining Balance: {{employee?.remainingAmount}}</li>
+              </ul>
+              <div class="row text-center">
+                  <div class="col-md-4">
+                <a routerLink ="/request/add" class="card-link mt-2 mr-2">Submit A Reimbursement</a>
+            </div>
+            <div class="col-md-4">
+                <a routerLink ="/my-reimbursements" class="card-link mt-2">View My Reimbursement</a>
+            </div>
+            <div class="col-md-4">
+                <a routerLink ="/my-approved-rejected" class="card-link mt-2">Approved/Rejected Requests</a>
+            </div>
+              </div>
+
+              
+        </div>
+    </div>
+    </div>
+</div>
+    <div class="row">
+    <div class="col-md-2"></div>
+    <div *ngIf="authUser" class="col-md-8">
+        <app-dashboard></app-dashboard>
+</div>
+</div>
+
+    
+
+    
+

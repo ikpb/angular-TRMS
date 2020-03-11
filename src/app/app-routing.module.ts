@@ -13,9 +13,11 @@ import {NotFoundComponent} from './components/not-found/not-found.component';
 import {SettingsComponent} from './components/settings/settings.component';
 import { EmployeeDashboardComponent } from './components/employee-dashboard/employee-dashboard.component';
 import { AuthGuard } from './auth/auth.guard';
+import { EmployeeReimbursementsComponent } from './components/employee-reimbursements/employee-reimbursements.component';
+import { ReimbursementDetailsComponent } from './components/reimbursement-details/reimbursement-details.component';
 
 const routes: Routes = [
-{path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+{path: '', redirectTo: '/employee-dashboard', pathMatch: 'full'},
 {path: 'request/add', component: AddRequestComponent, canActivate: [AuthGuard]},
 {path: 'request/edit', component: EditRequestComponent, canActivate: [AuthGuard]},
 {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
@@ -25,6 +27,8 @@ const routes: Routes = [
 {path: 'employee/details', component: EmployeeDetailsComponent, canActivate: [AuthGuard]},
 {path: 'employee-dashboard', component: EmployeeDashboardComponent, canActivate: [AuthGuard]},
 {path: 'employees', component: EmployeesComponent, canActivate: [AuthGuard]},
+{path: 'my-reimbursements', component: EmployeeReimbursementsComponent, canActivate: [AuthGuard]},
+{path: 'my-reimbursements/:id', component: ReimbursementDetailsComponent},
 {path: 'settings', component: SettingsComponent, canActivate: [AuthGuard]},
 {path: '**', component: NotFoundComponent},
 

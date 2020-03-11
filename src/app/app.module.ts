@@ -27,6 +27,9 @@ import { EmployeeDashboardComponent } from './components/employee-dashboard/empl
 import { HttpRequestInterceptor } from './classes/HttpRequestInterceptor';
 import { AuthGuard } from './auth/auth.guard';
 import {TokenInterceptorService} from './service/token-interceptor.service';
+import { EmployeeReimbursementsComponent } from './components/employee-reimbursements/employee-reimbursements.component';
+import { MyApprovedRejectedComponent } from './components/my-approved-rejected/my-approved-rejected.component';
+import { ReimbursementDetailsComponent } from './components/reimbursement-details/reimbursement-details.component';
 
 
 @NgModule({
@@ -44,7 +47,10 @@ import {TokenInterceptorService} from './service/token-interceptor.service';
     SettingsComponent,
     NotFoundComponent,
     RequestComponent,
-    EmployeeDashboardComponent
+    EmployeeDashboardComponent,
+    EmployeeReimbursementsComponent,
+    MyApprovedRejectedComponent,
+    ReimbursementDetailsComponent
   ],
   imports: [
     BrowserModule,

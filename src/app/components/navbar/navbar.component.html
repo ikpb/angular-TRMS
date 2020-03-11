@@ -1,20 +1,20 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-primary mb-4">
+<nav class="navbar navbar-expand-md navbar-dark text-color-primary  mb-4">
 <div class="container">
-    <a routerLink="/" class="navbar-brand">Employee Portal</a>
+    <a routerLink="/" class="navbar-brand text-primary">Employee Portal</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarMain">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a routerLink="/" class="nav-link">Dashboard</a>
+                
             </li>
             
         </ul>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a routerLink="/register" class="nav-link">Register</a>
+        <ul class="navbar-nav justify-content-end">
+            <li *ngIf="authUser" class="nav-item">
+                <a routerLink="/register" class="nav-link text-primary">Register</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/login" class="nav-link">Login</a>
+                <a routerLink="/login" class="nav-link text-primary">Login</a>
             </li>
         </ul>
     </div>

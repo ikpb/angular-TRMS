@@ -12,19 +12,24 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ReimbursementService {
-  postsUrl: string = 'http://localhost:8080/tuition-reimbursement/reimbursements';
-
+  allFormsUrl: string = 'http://localhost:8080/tuition-reimbursement/Reimbursements';
+  userFormsUrl: string = 'http://localhost:8080/tuition-reimbursement/Reimbursement';
+  singleFormsUrl: string = 'http://localhost:8080/tuition-reimbursement/Reimbursement/id';
   constructor(private http: HttpClient) { }
 
 getForms() : Observable<ReimbursementForm[]>{
-  return this.http.get<ReimbursementForm[]>(this.postsUrl);
+  return this.http.get<ReimbursementForm[]>(this.allFormsUrl);
 }
 
 saveForm(forms: ReimbursementForm): Observable<ReimbursementForm>{
-  return this.http.post<ReimbursementForm>(this.postsUrl, forms,httpOptions);
+  return this.http.post<ReimbursementForm>(this.allFormsUrl, forms,httpOptions);
 }
-getMyform() : Observable<ReimbursementForm>
+getMyForms(email: String) : Observable<ReimbursementForm[]>
 {
-  return this.http.get<ReimbursementForm>(this.postsUrl,httpOptions);
+  return this.http.get<ReimbursementForm[]>(`${this.userFormsUrl}?userid=${email}`,httpOptions);
+}
+getMyForm(id: Number) : Observable<ReimbursementForm>
+{
+  return this.http.get<ReimbursementForm>(`${this.singleFormsUrl}?id=${id}`,httpOptions);
 }
 }

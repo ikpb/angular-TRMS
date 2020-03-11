@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+    <div class="col-md-2"></div>
+<div class="col-md-6 align-self-center">
+<div class="card border-primary mb-3">
+    <div class="card-head pt-3 pl-4"><h3>{{ employee?.firstName }} {{ employee?.lastName }}</h3></div>
+    <div class="card-body">
+        <h6 class="card-title"><span class="badge badge-primary badge-pill" >id: {{ employee?.id }} </span></h6>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Email: {{ employee?.email }}</li>
+            <li class="list-group-item">Position: {{ employee?.userType | titlecase }}</li>
+            <li class="list-group-item">Remaining Balance: {{employee?.remainingAmount}}</li>
+          </ul>
+    </div>
+</div>
+<div class="text-center">
+<h2>My Reimbursement Requests:</h2>
+<div *ngIf="loadForm" class="col-md-10">
+<div (click)="onSelect(forms)"  class="card border-primary mb-3 ml-5 col-md-12" *ngFor="let forms of myform" >
+    <h5 class="card-head pt-1 pl-2"><span class="badge badge-primary badge-pill" >Form Id: {{ forms.id }} </span></h5>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Date Submitted: {{ forms.dateOfEvent | date}}</li>
+            <li class="list-group-item">End Date: {{forms.endDate}}</li>
+          </ul>
+        <p class="card-text"></p>
+    </div>
+</div>
+</div>
+<div *ngIf="!loadForm" class="text-center">
+    Loading Requests...
+    <div class="row">
+        <p class="col-md-4 ml-4"></p>
+        <p class="loader"></p>
+    </div>
+    
+</div>
+<div *ngIf="noForms" class="text-center">You have no Forms</div>
+</div>
+</div>
+</div>
+</div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { Login } from 'src/app/models/Login';
+import { Employee } from 'src/app/models/employee';
 
 
 @Component({
@@ -13,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private login: LoginService) { }
     by: {};
+    employee:Employee;
   ngOnInit(): void {
     
   }
@@ -34,10 +36,14 @@ export class LoginComponent implements OnInit {
 getBy(by){
   console.log(by);
   localStorage.setItem('token',by.sessionid +" "+ by.firstName+ " " + by.email+" " + by.userType);
-  if(by.userType == "EMPLOYEE"){
-    this.router.navigate(['/employee'])
+  if(by.userType == "EMPLOYEE" || by.userType == "DHEAD" || by.userType == "DCHAIR" || by.userType == "BENCO"){
+    this.router.navigate(['/employee-dashboard'])
+    this.employee.firstName = by.firstName.toString;
+    this.employee.lastName = by.lastName.toString;
+    this.employee.id = Number(by.id);
+    this.employee.email = by.email.toString;
   }else{
-    this.router.navigate(['/dashboard'])
+    this.router.navigate(['/dashboard']);
   }
   
 }

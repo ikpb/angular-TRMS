@@ -12,9 +12,15 @@ const httpOptions = {
 })
 export class EmployeesService {
  postsUrl: string = 'http://localhost:8080/tuition-reimbursement/user';
+ employeeUrl: string = 'http://localhost:8080/tuition-reimbursement/user/1';
+ 
   constructor(private http: HttpClient) { }
 
   getEmployees() : Observable<Employee[]>{
     return this.http.get<Employee[]>(this.postsUrl);
+    
+  }
+  getEmployee() : Observable<Employee>{
+    return this.http.get<Employee>(this.employeeUrl);
   }
 }

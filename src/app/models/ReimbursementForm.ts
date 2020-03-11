@@ -15,17 +15,19 @@ state: string,
 
 cost: number,
 
+estimateReimburse: number,
+
 gradeFormat: string,
 
 typeOfEvent: string,
 
 workJustification: string,
 
-submissionDate: Date,
+endDate: Date,
 
 description: string,
 
-endDate: Date,
+submissionDate: Date,
 
 fileUpLoad?: File;
 

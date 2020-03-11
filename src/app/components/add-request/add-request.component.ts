@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ReimbursementForm } from '../../models/ReimbursementForm'
-import { ReimbursementService } from '../../services/reimbursement.service'
-
+import { ReimbursementForm } from '../../models/ReimbursementForm';
+import { ReimbursementService } from '../../services/reimbursement.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +18,10 @@ currentDate = new Date();
 dateLimit = this.currentDate.setDate(this.currentDate.getDate()+7);
 
 
-  constructor(private reimbursementService: ReimbursementService) { }
+  constructor(
+    private reimbursementService: ReimbursementService,
+    private router:Router
+    ) { }
 
   ngOnInit(): void {
   }
@@ -26,5 +29,6 @@ addForm(userid,dateOfEvent,address,city,state,cost,gradeFormat,typeOfEvent,workJ
 this.reimbursementService.saveForm({userid,dateOfEvent,address,city,state,cost,gradeFormat,typeOfEvent,workJustification,submissionDate,description, endDate} as ReimbursementForm).subscribe(forms => {
   console.log(forms);
 });
+this.router.navigate(['/employee-dashboard']);
 }
 }

@@ -28,7 +28,10 @@ export class LoginComponent implements OnInit {
       {})
       if(this.by===null){
       }else{
-       this.getBy(this.by); 
+        setTimeout(() => {
+          this.getBy(this.by); 
+        }, 2500);
+       
       }
       
     });
@@ -38,12 +41,8 @@ getBy(by){
   localStorage.setItem('token',by.sessionid +" "+ by.firstName+ " " + by.email+" " + by.userType);
   if(by.userType == "EMPLOYEE" || by.userType == "DHEAD" || by.userType == "DCHAIR" || by.userType == "BENCO"){
     this.router.navigate(['/employee-dashboard'])
-    this.employee.firstName = by.firstName.toString;
-    this.employee.lastName = by.lastName.toString;
-    this.employee.id = Number(by.id);
-    this.employee.email = by.email.toString;
   }else{
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/login']);
   }
   
 }

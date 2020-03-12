@@ -15,12 +15,13 @@ export class ReimbursementService {
   allFormsUrl: string = 'http://localhost:8080/tuition-reimbursement/Reimbursements';
   userFormsUrl: string = 'http://localhost:8080/tuition-reimbursement/Reimbursement';
   singleFormsUrl: string = 'http://localhost:8080/tuition-reimbursement/Reimbursement/id';
+  adminFormsUrl: string = 'http://localhost:8080/tuition-reimbursement/Reimbursement/title';
+  adminFormUrl: string = 'http://localhost:8080/tuition-reimbursement/Reimbursement/title/';
   constructor(private http: HttpClient) { }
 
 getForms() : Observable<ReimbursementForm[]>{
   return this.http.get<ReimbursementForm[]>(this.allFormsUrl);
 }
-
 saveForm(forms: ReimbursementForm): Observable<ReimbursementForm>{
   return this.http.post<ReimbursementForm>(this.allFormsUrl, forms,httpOptions);
 }
@@ -31,5 +32,13 @@ getMyForms(email: String) : Observable<ReimbursementForm[]>
 getMyForm(id: Number) : Observable<ReimbursementForm>
 {
   return this.http.get<ReimbursementForm>(`${this.singleFormsUrl}?id=${id}`,httpOptions);
+}
+getMyEmployeesForms(title: number) : Observable<ReimbursementForm[]>
+{
+  return this.http.get<ReimbursementForm[]>(`${this.adminFormsUrl}?title=${title}`,httpOptions);
+}
+getMyEmployeesForm(title: number, id:number) : Observable<ReimbursementForm>
+{
+  return this.http.get<ReimbursementForm>(`${this.adminFormUrl}?title=${title}&id=${id}`,httpOptions);
 }
 }

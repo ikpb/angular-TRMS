@@ -15,6 +15,8 @@ import { EmployeeDashboardComponent } from './components/employee-dashboard/empl
 import { AuthGuard } from './auth/auth.guard';
 import { EmployeeReimbursementsComponent } from './components/employee-reimbursements/employee-reimbursements.component';
 import { ReimbursementDetailsComponent } from './components/reimbursement-details/reimbursement-details.component';
+import { AdminViewRequestsComponent } from './components/admin-view-requests/admin-view-requests.component';
+import { AdminViewRequestDetailsComponent } from './components/admin-view-request-details/admin-view-request-details.component';
 
 const routes: Routes = [
 {path: '', redirectTo: '/employee-dashboard', pathMatch: 'full'},
@@ -30,6 +32,8 @@ const routes: Routes = [
 {path: 'my-reimbursements', component: EmployeeReimbursementsComponent, canActivate: [AuthGuard]},
 {path: 'my-reimbursements/:id', component: ReimbursementDetailsComponent},
 {path: 'settings', component: SettingsComponent, canActivate: [AuthGuard]},
+{path: 'view-requests', component: AdminViewRequestsComponent, canActivate: [AuthGuard]},
+{path: 'view-requests/:id', component: AdminViewRequestDetailsComponent, canActivate: [AuthGuard]},
 {path: '**', component: NotFoundComponent},
 
 ];

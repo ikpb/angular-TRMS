@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ReimbursementService } from '../../services/reimbursement.service';
 import { ReimbursementForm } from '../../models/ReimbursementForm'
+
 @Component({
   selector: 'app-reimbursement-details',
   templateUrl: './reimbursement-details.component.html',
@@ -9,9 +10,9 @@ import { ReimbursementForm } from '../../models/ReimbursementForm'
 })
 export class ReimbursementDetailsComponent implements OnInit {
 public formId;
-
 individualForm: ReimbursementForm;
 pageLoaded: boolean = false;
+
   constructor(private route: ActivatedRoute,
     private reimbursementService: ReimbursementService
     ) { }

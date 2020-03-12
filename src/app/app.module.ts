@@ -30,6 +30,8 @@ import {TokenInterceptorService} from './service/token-interceptor.service';
 import { EmployeeReimbursementsComponent } from './components/employee-reimbursements/employee-reimbursements.component';
 import { MyApprovedRejectedComponent } from './components/my-approved-rejected/my-approved-rejected.component';
 import { ReimbursementDetailsComponent } from './components/reimbursement-details/reimbursement-details.component';
+import { AdminViewRequestsComponent } from './components/admin-view-requests/admin-view-requests.component';
+import { AdminViewRequestDetailsComponent } from './components/admin-view-request-details/admin-view-request-details.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { ReimbursementDetailsComponent } from './components/reimbursement-detail
     EmployeeDashboardComponent,
     EmployeeReimbursementsComponent,
     MyApprovedRejectedComponent,
-    ReimbursementDetailsComponent
+    ReimbursementDetailsComponent,
+    AdminViewRequestsComponent,
+    AdminViewRequestDetailsComponent
   ],
   imports: [
     BrowserModule,

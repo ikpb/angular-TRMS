@@ -18,6 +18,7 @@ authUser: boolean = false;
     this.employeesService.getEmployee().subscribe(employ => {
     this.employee = employ;
       console.log(employ);
+      localStorage.setItem('userId',this.employee.title)
       if(this.employee.userType.startsWith("DHEAD") || this.employee.userType.startsWith("DCHAIR") || this.employee.userType.startsWith("BENCO")){
         this.authUser = true;
       }

@@ -27,12 +27,10 @@ setTimeout(() => {
 
   let values1 = parseInt(this.formId);
   let values2 = parseInt(tokenValue.toString());
-  console.log(this.formId);
-  console.log(tokenValue);
   this.reimbursementService.getMyEmployeesForm(values2,values1).subscribe(form=>{
     this.individualForm = form;
-
     console.log(this.individualForm);
+    localStorage.setItem('currentRequest', this.formId);
     this.pageLoaded = true;
   });
 }, 2000);

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark text-color-primary  mb-4">
 <div class="container">
-    <a routerLink="/" class="navbar-brand text-primary">Employee Portal</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain"><span class="navbar-toggler-icon"></span></button>
+    <h2 routerLink="/" class="navbar-brand text-primary">Employee Portal</h2>
+    <button class="navbar-toggler btn-primary" type="button" data-toggle="collapse" data-target="#navbarMain"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarMain">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
@@ -9,12 +9,12 @@
             </li>
             
         </ul>
-        <ul class="navbar-nav justify-content-end">
+        <ul class="navbar-nav justify-content-end mr-auto">
             <li *ngIf="authUser" class="nav-item">
-                <a routerLink="/register" class="nav-link text-primary">Register</a>
+                <h5 routerLink="/register" class="nav-link text-primary">Register</h5>
             </li>
             <li class="nav-item">
-                <a routerLink="/login" class="nav-link text-primary">Login</a>
+                <h5 routerLink="/login" class="nav-link text-primary">Login</h5>
             </li>
         </ul>
     </div>

@@ -1,0 +1,24 @@
+<div class="text-center">
+    <h2>My Approved Requests:</h2>
+    <div *ngIf="loadForm" class="col-md-10">
+    <div  (click)="onSelect(forms)"class="card border-primary mb-3 ml-5 col-md-12" *ngFor="let forms of appRejectForms" >
+        <h5 class="card-head pt-1 pl-2"><span class="badge badge-primary badge-pill" >Form Id: {{ forms.formId }} </span></h5>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Date Approved: {{ forms.dateApproved | date}}</li>
+                <li class="list-group-item">Approved By: {{forms.approvedBy}}</li>
+              </ul>
+            <p class="card-text"></p>
+        </div>
+    </div>
+    </div>
+    <div *ngIf="!loadForm" class="text-center">
+        Loading Approvals...
+        <div class="row">
+            <p class="col-md-4 ml-4"></p>
+            <p class="loader"></p>
+        </div>
+        
+    </div>
+    <div *ngIf="noForms" class="text-center">You have approved Forms</div>
+    </div>

@@ -32,6 +32,9 @@ import { MyApprovedRejectedComponent } from './components/my-approved-rejected/m
 import { ReimbursementDetailsComponent } from './components/reimbursement-details/reimbursement-details.component';
 import { AdminViewRequestsComponent } from './components/admin-view-requests/admin-view-requests.component';
 import { AdminViewRequestDetailsComponent } from './components/admin-view-request-details/admin-view-request-details.component';
+import { ApproveRejectComponent } from './components/approve-reject/approve-reject.component';
+import { MyApprovedComponent } from './components/my-approved/my-approved.component';
+
 
 
 @NgModule({
@@ -54,7 +57,10 @@ import { AdminViewRequestDetailsComponent } from './components/admin-view-reques
     MyApprovedRejectedComponent,
     ReimbursementDetailsComponent,
     AdminViewRequestsComponent,
-    AdminViewRequestDetailsComponent
+    AdminViewRequestDetailsComponent,
+    ApproveRejectComponent,
+    MyApprovedComponent
+
   ],
   imports: [
     BrowserModule,

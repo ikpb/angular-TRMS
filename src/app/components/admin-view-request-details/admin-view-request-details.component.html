@@ -1,5 +1,5 @@
 <div *ngIf="pageLoaded" class="row">
-    <div class="col-md-10 mx-auto">
+    <div class=" card col-md-6 mx-auto">
         <div class="card-body">
            <h1><span class="text-primary"><i class="fa fa-wpforms"></i>Reimbursement Form</span> Id: {{ individualForm.id }}
         </h1>
@@ -53,6 +53,7 @@
                 <p>{{ individualForm.workJustification }}</p>
             </div>
         </div>
+        <app-approve-reject></app-approve-reject>
         </div>
     </div>
 </div>

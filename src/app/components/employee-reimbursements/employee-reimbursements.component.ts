@@ -28,6 +28,7 @@ export class EmployeeReimbursementsComponent implements OnInit {
   ngOnInit(): void {
     this.employeesService.getEmployee().subscribe(employ => {
       this.employee = employ;
+     
     });
     setTimeout(() => {
       this.reimbursementService.getMyForms(this.employee?.email).subscribe(form=>{

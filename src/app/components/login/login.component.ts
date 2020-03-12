@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       }else{
         setTimeout(() => {
           this.getBy(this.by); 
-        }, 2500);
+        }, 1500);
        
       }
       

@@ -4,6 +4,7 @@ import { ApproveRejectService } from '../../services/approve-reject.service';
 import { ReimbursementForm } from '../../models/ReimbursementForm'
 import { Employee } from '../../models/employee';
 import { EmployeesService } from '../../services/employees.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-approve-reject',
@@ -24,6 +25,7 @@ export class ApproveRejectComponent implements OnInit {
   constructor(
     private employeesService: EmployeesService,
     private approveRejectService: ApproveRejectService,
+      private router: Router
 
   ) { }
   ngOnInit(): void {
@@ -77,6 +79,7 @@ submitApproval(e){
    let today = new Date();
    let leng = this.appRejectForms.length;
    console.log(leng);
+   if(leng>0){
    for(let i=0;i<leng;i++){
      let apby = Number(this.appRejectForms[i].approvedby);
      let rgby = Number(this.appRejectForms[i].rejectedby);
@@ -91,6 +94,11 @@ submitApproval(e){
   
  })
      }  
+   }}else{
+    this.approveRejectService.saveForm({appid:0,formid:formId,approvedby:userId,timeAppReject:today,rejected:false,rejectedby:0,infoNeeded: "None at this time."} as ApproveRejectForm).subscribe(forms =>{
+      console.log(forms);
+   
+  })
    }
  e.preventDefault();
 }

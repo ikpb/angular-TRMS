@@ -14,6 +14,7 @@ export class AddRequestComponent implements OnInit {
 reimbursementForm: ReimbursementForm;
 nowDate = new Date();
 currentDate = new Date();
+estimatedReimbursement: number;
 
 dateLimit = this.currentDate.setDate(this.currentDate.getDate()+7);
 
@@ -30,5 +31,37 @@ this.reimbursementService.saveForm({userid,dateOfEvent,address,city,state,cost,g
   console.log(forms);
 });
 this.router.navigate(['/employee-dashboard']);
+}
+
+calculateResults(e,val){
+let courseCost= e.target.value;
+console.log(e.target.value);
+console.log(val);
+switch(val) {
+  case 1:
+    this.estimatedReimbursement = courseCost*.8;
+    
+    break;
+  case 2:
+    this.estimatedReimbursement = courseCost*.6;
+    
+    break;
+  case 3:
+    this.estimatedReimbursement = courseCost*.75;
+   
+    break;
+  case 4:
+    this.estimatedReimbursement = courseCost*1;
+    
+    break;
+  case 5:
+    this.estimatedReimbursement = courseCost*.9;
+    
+    break;
+  case 6:
+    this.estimatedReimbursement = courseCost*.3;
+    
+    break;
+  }
 }
 }

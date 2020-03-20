@@ -34,6 +34,7 @@ import { AdminViewRequestsComponent } from './components/admin-view-requests/adm
 import { AdminViewRequestDetailsComponent } from './components/admin-view-request-details/admin-view-request-details.component';
 import { ApproveRejectComponent } from './components/approve-reject/approve-reject.component';
 import { MyApprovedComponent } from './components/my-approved/my-approved.component';
+import { DashboardexampleComponent } from './components/dashboardexample/dashboardexample.component';
 
 
 
@@ -59,7 +60,8 @@ import { MyApprovedComponent } from './components/my-approved/my-approved.compon
     AdminViewRequestsComponent,
     AdminViewRequestDetailsComponent,
     ApproveRejectComponent,
-    MyApprovedComponent
+    MyApprovedComponent,
+    DashboardexampleComponent
 
   ],
   imports: [
